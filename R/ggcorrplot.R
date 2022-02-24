@@ -230,7 +230,9 @@ ggcorrplot <- function(corr,
     )
 
   # modification based on method
-  if (method == "square") {
+  if (method == "colour" | method == "color") {
+    p <- p + ggplot2::geom_tile()
+  } else if (method == "square") {
     p <- p +
       ggplot2::geom_tile(color = outline.color)
   } else if (method == "circle") {
@@ -290,7 +292,7 @@ ggcorrplot <- function(corr,
         mapping = ggplot2::aes_string(x = "Var1", y = "Var2"),
         label = label,
         color = lab_col,
-        size = lab_size
+        size = lab_size,
         alpha = lab_alpha
       )
   }
