@@ -144,6 +144,7 @@ ggcorrplot <- function(corr,
                        lab = FALSE,
                        lab_col = "black",
                        lab_size = 4,
+                       lab_alpha = FALSE,
                        p.mat = NULL,
                        sig.level = 0.05,
                        insig = c("pch", "blank"),
@@ -280,7 +281,8 @@ ggcorrplot <- function(corr,
     ns <- corr$pvalue > sig.level
     if(sum(ns) > 0) label[ns] <- " "
   }
-
+  
+  lab_alpha = ifelse(lab_alpha,label,1)
   # matrix cell labels
   if (lab) {
     p <- p +
@@ -289,6 +291,7 @@ ggcorrplot <- function(corr,
         label = label,
         color = lab_col,
         size = lab_size
+        alpha = lab_alpha
       )
   }
 
