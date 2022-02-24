@@ -285,7 +285,7 @@ ggcorrplot <- function(corr,
   }
   
   if(lab_alpha) {
-    lab_alpha = abs(label)/2+0.5
+    lab_alpha = abs(label)
    } else {
     lab_alpha = 1
   }
