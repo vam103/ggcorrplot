@@ -284,7 +284,11 @@ ggcorrplot <- function(corr,
     if(sum(ns) > 0) label[ns] <- " "
   }
   
-  lab_alpha = ifelse(lab_alpha,label,1)
+  if(lab_alpha) {
+    lab_alpha = abs(label)/2+0.5
+   } else {
+    lab_alpha = 1
+  }
   # matrix cell labels
   if (lab) {
     p <- p +
